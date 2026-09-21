@@ -1,0 +1,11 @@
+# Fitxers que genera Maven o l'IDE: no es pugen
+target/
+out/
+.idea/
+*.iml
+.vscode/
+
+# Carpetes que creen els exemples en executar-se
+dades/import/
+dades/export/
+dades/backup/
