@@ -14,18 +14,26 @@ import java.util.stream.Stream;
  */
 public class Ex6ResumEscriptori {
 
+    // La ruta ABSOLUTA de la carpeta que volem recórrer.
+    // Absoluta vol dir que comença per la unitat (C:\ a Windows) o per / a Linux i Mac:
+    // no depèn de la carpeta des d'on s'executi el programa.
+    //
+    // Compte amb les barres invertides: dins d'un text de Java, "\" és el caràcter d'escapada,
+    // per això n'hi hem de posar dues seguides per escriure'n una de sola.
+    // Alternativa que funciona igual i s'escriu millor: "C:/Users/ignac/Desktop".
+    private static final String RUTA = "C:\\Users\\ignac\\Desktop";
+
     public static void main(String[] args) throws IOException {
 
         // 1) La carpeta d'inici.
-        // System.getProperty("user.home") és la carpeta de l'usuari
-        // (C:\Users\ignac a Windows, /home/usuari a Linux).
-        // resolve("Desktop") hi afegeix la subcarpeta de l'escriptori.
-        // Si el Windows està en català o castellà pot ser "Escriptori" o "Escritorio":
-        // per això comprovem que existeixi abans de recórrer-la.
-        Path escriptori = Path.of(System.getProperty("user.home")).resolve("Desktop");
+        // Si en executar el programa li passem una ruta com a argument, fem servir aquella;
+        // si no, la constant de dalt. Així el mateix exemple serveix per a qualsevol carpeta.
+        Path escriptori = Path.of(args.length > 0 ? args[0] : RUTA);
 
+        // Path.of no comprova res: només construeix la ruta.
+        // Qui diu si existeix de debò és Files.isDirectory.
         if (!Files.isDirectory(escriptori)) {
-            System.out.println("No trobo la carpeta: " + escriptori);
+            System.out.println("No trobo la carpeta: " + escriptori.toAbsolutePath());
             return;   // sortim del programa sense petar
         }
 
@@ -61,9 +69,10 @@ public class Ex6ResumEscriptori {
         }
 
         // 4) Resultat.
+        // Restem 1 a les carpetes perquè Files.walk també compta la carpeta d'inici.
         System.out.println();
         System.out.println("Fitxers:  " + fitxers);
-        System.out.println("Carpetes: " + carpetes);
+        System.out.println("Carpetes: " + (carpetes - 1));
         System.out.println("Ocupen:   " + bytes + " bytes  (" + llegible(bytes) + ")");
     }
 
