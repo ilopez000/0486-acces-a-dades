@@ -9,3 +9,6 @@ out/
 dades/import/
 dades/export/
 dades/backup/
+dades/*.ser
+dades/*.log
+dades/*.dat
