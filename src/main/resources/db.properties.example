@@ -1,0 +1,7 @@
+# Connexió a la base de dades de proves de la sessió 13.
+# 1) Copia aquest fitxer al mateix lloc amb el nom db.properties
+# 2) Posa-hi la contrasenya de l'usuari dam2
+# db.properties NO es puja al repositori (és al .gitignore).
+db.url=jdbc:mariadb://localhost:3306/gamevault_proves
+db.user=dam2
+db.password=CANVIA_AIXO
