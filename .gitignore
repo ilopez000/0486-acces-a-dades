@@ -12,3 +12,9 @@ dades/backup/
 dades/*.ser
 dades/*.log
 dades/*.dat
+
+# Sessió 13: la base de dades SQLite que crea l'exemple 8
+dades/*.db
+
+# Credencials: es copia db.properties.example i no es puja mai
+src/main/resources/db.properties
