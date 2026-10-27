@@ -27,6 +27,7 @@ Cada sessió té el seu paquet dins de `src/main/java/cat/pratfp/gamevault/`.
 | 6 | `sessio6` | Serialització d'objectes i JSON amb Jackson | `Biblioteca` · `Ex1Serialitza` · `Ex2VersioIncompatible` · `Ex3FiltreDeserialitzacio` · `Ex4JsonAmbJackson` · `Ex5JsonSenseModel` |
 | 11-12 | `sql/` | Instal·lació de MariaDB i DBeaver · repàs de SQL | `00_usuari_dam2.sql` · `01_gamevault_proves.sql` · `02_institut.sql` |
 | 13 | `sessio13` | Consultar i modificar MariaDB des de Java amb JDBC | `BaseDeDades` · `Ex1ProvaConnexio` · `Ex2LlistaJocs` · `Ex3JocsPerGenere` · `Ex4Valoracions` · `Ex5AltaJugador` · `Ex6RebaixaPreus` · `Ex7EsborraJugador` · `Ex8SqliteEncastat` |
+| Recurs | `javapasapas` | Consultes SQL des de Java, pas a pas (13 passos, de connectar fins a un DAO) | `Connexio` · `Ex01Connecta` · `Ex02QuantsJocs` · `Ex03LlistaTitols` · `Ex04FitxaJocs` · `Ex05JocsPerGenere` · `Ex06PerillInjeccio` · `Ex07JocsPerPlataforma` · `Versio` · `Ex08DeFilesAObjectes` · `Ex09InformeCsv` · `Ex10ConsultaQualsevol` · `Ex11AltaCanviBaixa` · `Ex12CompraAmbTransaccio` · `JocDao` · `Ex13Cercador` |
 
 ## Estructura
 
@@ -42,7 +43,8 @@ Cada sessió té el seu paquet dins de `src/main/java/cat/pratfp/gamevault/`.
     │   ├── sessio2/       ← un paquet per sessió
     │   ├── sessio5/
     │   ├── sessio6/
-    │   └── sessio13/
+    │   ├── sessio13/
+    │   └── javapasapas/   ← recurs «Consultes SQL des de Java, pas a pas»
     └── resources/
         └── db.properties.example   ← copia'l com a db.properties
 ```
@@ -55,6 +57,9 @@ Cada sessió té el seu paquet dins de `src/main/java/cat/pratfp/gamevault/`.
 3. Per als exemples de Java de la sessió 13, copia `src/main/resources/db.properties.example`
    com a `db.properties` i posa-hi la contrasenya de `dam2`. Aquest fitxer **no es puja mai**:
    és al `.gitignore`.
+4. Els exemples del paquet `javapasapas` no fan servir `db.properties`: per simplicitat,
+   la connexió (usuari `dam2`) és a la classe `Connexio`. Els passos 11 i 12 modifiquen dades;
+   per tornar a l'estat inicial, executa de nou `sql/01_gamevault_proves.sql`.
 
 Les carpetes `dades/import`, `dades/export` i `dades/backup`, i els fitxers `.ser`, `.log` i
 `.dat`, els creen els exemples en executar-se i no es pugen al repositori.
