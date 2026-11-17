@@ -46,7 +46,9 @@ Cada sessió té el seu paquet dins de `src/main/java/cat/pratfp/gamevault/`.
     │   ├── sessio5/
     │   ├── sessio6/
     │   ├── sessio13/
-    │   └── javapasapas/   ← recurs «Consultes SQL des de Java, pas a pas»
+    │   ├── javapasapas/   ← recurs «Consultes SQL des de Java, pas a pas»
+    │   ├── cacaerrors/    ← caça d'errors JDBC (programes amb errors a propòsit)
+    │   └── transaccions/  ← transaccions i procediments emmagatzemats
     └── resources/
         └── db.properties.example   ← copia'l com a db.properties
 ```
