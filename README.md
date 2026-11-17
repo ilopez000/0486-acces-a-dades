@@ -28,6 +28,8 @@ Cada sessió té el seu paquet dins de `src/main/java/cat/pratfp/gamevault/`.
 | 11-12 | `sql/` | Instal·lació de MariaDB i DBeaver · repàs de SQL | `00_usuari_dam2.sql` · `01_gamevault_proves.sql` · `02_institut.sql` |
 | 13 | `sessio13` | Consultar i modificar MariaDB des de Java amb JDBC | `BaseDeDades` · `Ex1ProvaConnexio` · `Ex2LlistaJocs` · `Ex3JocsPerGenere` · `Ex4Valoracions` · `Ex5AltaJugador` · `Ex6RebaixaPreus` · `Ex7EsborraJugador` · `Ex8SqliteEncastat` |
 | Recurs | `javapasapas` | Consultes SQL des de Java, pas a pas (13 passos, de connectar fins a un DAO) | `Connexio` · `Ex01Connecta` · `Ex02QuantsJocs` · `Ex03LlistaTitols` · `Ex04FitxaJocs` · `Ex05JocsPerGenere` · `Ex06PerillInjeccio` · `Ex07JocsPerPlataforma` · `Versio` · `Ex08DeFilesAObjectes` · `Ex09InformeCsv` · `Ex10ConsultaQualsevol` · `Ex11AltaCanviBaixa` · `Ex12CompraAmbTransaccio` · `JocDao` · `Ex13Cercador` |
+| Repàs | `cacaerrors` | Caça d'errors JDBC: deu programes amb un error cadascun (troba'l i arregla'l) | `Connexio` · `Cas01Connecta` · `Cas02LlistaEstudis` · `Cas03JocsRpg` · `Cas04FitxaJoc` · `Cas05QuantsJocs` · `Cas06PreuVersio` · `Cas07AnysEstudis` · `Cas08CercaGenere` · `Cas09JocsDunEstudi` · `Cas10CompraFallida` |
+| Transaccions | `transaccions` + `sql/03_procediments_gamevault.sql` | Transaccions (commit, rollback, savepoint, aïllament), procediments emmagatzemats amb CallableStatement i pool de connexions | `Connexio` · `T1CompraOTotORes` · `T2ComandaAmbSavepoint` · `T3NivellsAillament` · `P1ProcedimentAmbResultat` · `P2ParametresDeSortida` · `P3CompraAmbProcediment` · `P4Funcio` · `H1PoolDeConnexions` |
 
 ## Estructura
 
@@ -36,7 +38,7 @@ Cada sessió té el seu paquet dins de `src/main/java/cat/pratfp/gamevault/`.
 ├── pom.xml
 ├── dades/
 │   └── catalog.csv        ← dades de partida del catàleg
-├── sql/                   ← scripts de les bases de dades de proves (sessions 11-13)
+├── sql/                   ← scripts de les bases de dades de proves i dels procediments
 └── src/main/
     ├── java/cat/pratfp/gamevault/
     │   ├── model/         ← el record Joc, compartit per totes les sessions
@@ -69,3 +71,12 @@ Les dependències (OpenCSV, Jackson i els drivers JDBC de MariaDB i SQLite) es d
 
 ---
 Docent: Ignasi López Aylagas · PratFP
+
+## Caça d'errors i transaccions
+
+- **`cacaerrors`**: cada programa té un error a propòsit. Abans de començar, torna a executar
+  `sql/01_gamevault_proves.sql`: els casos 6 i 10 depenen de l'estoc.
+- **`transaccions`**: abans dels exemples P1 a P4, executa `sql/03_procediments_gamevault.sql`
+  (després de `01_gamevault_proves.sql`). Crea els procediments `jocs_per_genere`, `total_gastat`
+  i `registra_compra` i la funció `preu_amb_iva`. Els exemples que compren o canvien preus
+  modifiquen les dades: torna a executar els dos scripts per deixar-les com al principi.
